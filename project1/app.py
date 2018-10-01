@@ -30,7 +30,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(object):
+    """
+    This class is for creating a UI for DHT22 sensor
+    """
     def setupUi(self, MainWindow):
+        """
+        This function creates the layout for MainWindow
+        """
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(629, 330)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -79,6 +85,9 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
+	"""
+        This function
+        """
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Temperature and Humidity Application"))
@@ -89,13 +98,16 @@ class Ui_MainWindow(object):
         self.label_5.setText(_translate("MainWindow", "Requested at"))
         
     def Get_Param(self):
+	"""
+        This function gets sensor data and populates the textboxes
+        """
         _translate = QtCore.QCoreApplication.translate
 
-		#Select sensor module and pin
+	#Select sensor module and pin
         sensor_module = Adafruit_DHT.DHT22
         sensor_pin = 4
 
-		#Read sensor data with a delay 
+	#Read sensor data with a delay 
         time.sleep(2.3)
         humidity, temperature = Adafruit_DHT.read(sensor_module, sensor_pin)
         
